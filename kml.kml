@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+    <NetworkLink>
+        <description>Autotravel.ru</description>
+        <name>Autotravel.ru</name>
+        <Link>
+            <href>https://autotravel.ru/kml.php</href>
+            <viewRefreshMode>onStop</viewRefreshMode>
+            <viewRefreshTime>1</viewRefreshTime>
+        </Link>
+    </NetworkLink>
+</kml>

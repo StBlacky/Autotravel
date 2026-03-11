@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="Autotravel.ru POI in Russia" 
+title_url="https://autotravel.ru/" 
+author_email="help@autotravel.ru" 
+author_location="Russia" 
+directory_title="Autotravel.ru POI in Russia" 
+author="autotravel.ru community" 
+description="Autotravel.ru POI in Russia">
+<Require feature="sharedmap"/>
+</ModulePrefs>
+<Content type="html">
+<![CDATA[
+<script>
+
+var map = new GMap2();
+var startpoint = new GLatLng(55.73, 38.87);
+map.setCenter(startpoint, 9);
+var kmlXml = new GGeoXml("https://autotravel.ru/kml.kml");
+map.addOverlay(kmlXml); 
+
+GEvent.addListener(map, "moveend", function() {
+ kmlXml = new GGeoXml("https://autotravel.ru/kml.kml");
+ map.addOverlay(kmlXml); 
+});
+
+</script>      
+]]>
+</Content>
+</Module>

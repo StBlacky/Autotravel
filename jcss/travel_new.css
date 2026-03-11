@@ -1,0 +1,2605 @@
+/* ==============================================
+   AUTOTRAVEL.RU — ЕДИНЫЙ СТИЛЬ (ОБНОВЛЕНИЕ 2025)
+   Чистая версия без дублей, совместимая с legacy
+   ============================================== */
+
+/* ===== 1. ШРИФТЫ ==================================== */
+@font-face{
+  font-style: normal;
+  font-weight: normal;
+  font-family: 'JakobExtraCTT';
+  src: url('/jpg/font/JKB75__C.woff2') format('woff2'),
+       url('/jpg/font/JKB75__C.woff') format('woff'),
+       url('/jpg/font/JKB75__C.TTF') format('truetype');
+}
+
+
+/* ===== 2. ДИЗАЙН-ТОКЕНЫ ============================== */
+:root{
+  --brand-font: JakobExtraCTT, Caveat, Arial, Helvetica, sans-serif;
+
+  
+  /* существующее */
+  --color-bg-main:    #f5f3e9;
+  --color-bg-block:   #f8f6ef;
+  --color-border:     #dcd6be;
+  --color-text-main:  #2c2b1f;
+  --color-text-light: #5b5948;
+  --color-accent:     #00552B;
+  --color-accent-dark:#CA3F1A;
+  --color-bg-hover:   #ece7da;
+
+  /* новые мягкие оттенки */
+  --color-green-soft:  #6b8e23;   /* оливковый акцент для хорошего состояния */
+  --color-yellow-soft: #e3c54b;   /* тёплый жёлтый для предупреждений */
+  --color-red-soft:    #c7563f;   /* тёплый кирпичный, не кричащий */
+  --color-panel-shadow: rgba(0,0,0,.05);
+
+}
+
+
+/* ===== 3. БАЗОВЫЕ ЭЛЕМЕНТЫ =========================== */
+html,body{
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
+}
+
+a{
+  transition: all 0.3s linear;
+  cursor: pointer;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover{
+  color: var(--color-accent-dark);
+  text-decoration: underline;
+}
+a.arc:visited{ color:black; }
+
+img{
+  display:inline-block;
+  max-width:100%;
+  height:auto;
+  margin:0;
+  padding:0;
+}
+
+
+
+/* ===== 4. ТИПОГРАФИКА ================================ */
+h1{
+  font-family:var(--brand-font);
+  font-size:2em;
+  font-weight:500;
+  color:#1a3b1a;
+  line-height:1.3;
+  margin-bottom:10px;
+}
+h2{
+  font-family:var(--brand-font);
+  font-size:19px;
+  font-weight:normal;
+  color:#2d4a2d;
+  margin-top:24px;
+  margin-bottom:6px;
+  padding-bottom:3px;
+}
+
+/* ============================================================
+   КНОПОЧНАЯ СИСТЕМА AUTOTRAVEL.RU
+   ------------------------------------------------------------
+   Стиль — спокойные "дорожные таблички"
+   ============================================================ */
+
+/* дополнительные токены для кнопок */
+:root {
+  --btn-main-bg:      var(--color-accent);
+  --btn-main-bg-hover: var(--color-accent-dark);
+  --btn-main-border:  #326032;
+  --btn-outline-border: #8ab88a;
+  --btn-bg-light:     var(--color-bg-block);
+}
+
+/* --- 1. Основная кнопка: ключевые действия --- */
+.btn-main, a.btn-main {
+  background: var(--btn-main-bg);
+  color: #fff;
+  border: 1px solid var(--btn-main-border);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-weight: 500;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-main:hover,a.btn-main:hover {
+  background: var(--btn-main-bg-hover)!important;
+  border-color: #264d26;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-decoration: none !important;
+}
+.btn-main:active {
+  background: #244624;
+  box-shadow: inset 0 2px 3px rgba(0,0,0,0.25);
+}
+
+
+/* --- 2. Контурная кнопка: фильтры и второстепенные команды --- */
+.btn-outline {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--btn-outline-border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+}
+.btn-outline:hover {
+  background: var(--color-bg-block);
+  border-color: #6fa06f;
+}
+.btn-outline:active {
+  background: #eaf3ea;
+  border-color: #5d925d;
+}
+
+/* --- 3. Светлая кнопка: “Отмена”, “Назад”, формы --- */
+.btn-light {
+  background: var(--btn-bg-light);
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+}
+.btn-light:hover {
+  background: #e9f1e9;
+  border-color: #bbb;
+}
+
+/* --- 4. Универсальные свойства для всех кнопок --- */
+.btn-main,
+.btn-outline,
+.btn-light {
+  display: inline-block;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+}
+/* ============================================================
+   УНИВЕРСАЛЬНЫЕ ИНФО-БЛОКИ (ПОДПИСИ / СООБЩЕНИЯ)
+   ------------------------------------------------------------
+   Применение: пояснения, подсказки, инфо о фото, сноски.
+   Пример: <div class="note-block">...</div>
+   ============================================================ */
+
+.note-block {
+  font-size: 0.95em;
+  line-height: 1.55;
+  color: var(--color-text-main);
+  background: #f1efe7; /* чуть плотнее, чем var(--color-bg-block) */
+  border-left: 5px solid var(--color-accent);
+  padding: 10px 18px;
+  margin: 12px 0 20px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+.note-block:first-of-type { margin-top: 8px; }
+
+.note-block a {
+  color: var(--color-accent);
+  font-weight: 500;
+  text-decoration: underline;
+  transition: color 0.15s ease-in-out;
+}
+.note-block a:hover { color: var(--color-accent-dark); }
+
+/* Вариации на будущее */
+.note-info  { border-left-color: var(--color-accent); }
+.note-warn  { border-left-color: #b45309; background:#fdf6ec; }
+.note-tip   { border-left-color: #2e7d32; background:#eef6ef; }
+
+
+
+
+/* ============================================================
+   АДМИН-ПАНЕЛЬ
+   ============================================================ */
+.admin-panel {
+  background: var(--color-bg-block);
+  border: 1px dashed var(--color-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 10px 0 15px;
+  font-size: 0.9em;
+  color: var(--color-text-light);
+  position: relative;
+}
+.admin-panel::before {
+  content: "🛠 Админ-зона";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: var(--color-bg-block);
+  padding: 0 6px;
+  font-size: 0.8em;
+  color: var(--color-text-light);
+}
+
+.admin-toggle {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  color: var(--color-text-light);
+  transition: color 0.2s;
+}
+.admin-toggle:hover { color: var(--color-text-main); }
+
+.admin-content { margin-top: 8px; }
+
+.admin-panel.collapsed .admin-content { display: none; }
+.admin-panel.collapsed::before {
+  content: "🛠 Админ-зона (свернута)";
+}
+
+
+
+/* ===== 7. ХЛЕБНЫЕ КРОШКИ ============================== */
+.breadcrumbs{
+  font-family:Arial,sans-serif;
+  font-size:13px;
+  color:#777;
+  margin-bottom:4px;
+}
+.breadcrumbs a{color:#777;text-decoration:none;}
+.breadcrumbs a:hover{color:#555;text-decoration:underline;}
+.breadcrumbs span{color:#555;}
+.breadcrumbs-separator{color:#aaa;margin:0 4px;}
+
+
+
+
+/* ===== 8. СТРУКТУРНЫЕ БЛОКИ И КАРТОЧКИ ================ */
+.card-block,
+.trace-card,
+.photo-gallery .thumb{
+  background:var(--color-bg-block);
+  border:1px solid var(--color-border);
+  border-radius:8px;
+  box-shadow:0 1px 2px rgba(0,0,0,.05);
+}
+.trace-card:hover,
+.photo-gallery .thumb:hover{
+  background:var(--color-bg-hover);
+  transition:background .2s ease-in-out;
+}
+
+
+/* === Иконки города / типов объектов === */
+.town-icons img {
+  width: 18px;
+  height: 18px;
+  margin: 0 2px;
+  vertical-align: middle;
+  object-fit: contain;
+  opacity: .85;
+  transition: opacity .2s, transform .2s;
+}
+.town-icons img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   ОСНОВНОЙ БЛОК ТРАССЫ
+   ============================================================ */
+.trace-info {
+  background: var(--color-bg-block);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 10px 0 15px;
+  color: var(--color-text-main);
+}
+.trace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.trace-title {
+  font-weight: 600;
+  font-size: 1.05em;
+}
+.trace-path {
+  color: var(--color-text-light);
+  margin-left: 5px;
+}
+.trace-desc {
+  color: var(--color-text-light);
+  font-size: 0.9em;
+  margin-top: 4px;
+}
+
+/* адаптив */
+@media (max-width: 600px) {
+  .trace-title { font-size: 1em; line-height: 1.3; }
+  .trace-desc { font-size: 0.85em; }
+}
+@media (max-width: 420px) {
+  .trace-title { font-size: 0.95em; }
+  .trace-info { padding: 10px 8px; margin: 8px 0 12px; }
+}
+
+
+/* ============================================================
+   TRACE LINE STRUCTURE
+   ============================================================ */
+.trace-line {
+  position: relative;
+  margin: 20px 0;
+  padding: 14px 12px;
+  background: var(--color-bg-block);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+/* --- панель комментария под участком --- */
+.trace-inline-panel {
+  background: var(--color-bg-main);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 6px var(--color-panel-shadow, rgba(0,0,0,.05));
+  animation: fadeIn .2s ease-in;
+  color: var(--color-text-main);
+}
+/* ============================================================
+   ПАНЕЛЬ ОТЗЫВОВ ПО УЧАСТКУ — ЧИСТАЯ ФИНАЛЬНАЯ ВЕРСИЯ
+   ============================================================ */
+
+/* Общий контейнер отзыва */
+.ts-item {
+  margin: 10px 0 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg-block);
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  animation: fadeIn .2s ease-in;
+}
+
+/* Верхняя строка: дата + километраж */
+.ts-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 0.92em;
+  color: var(--color-text-main);
+  margin-bottom: 6px;
+}
+
+.ts-date {
+  white-space: nowrap;
+}
+
+.ts-km {
+  white-space: nowrap;
+  color: var(--color-text-light);
+  font-weight: 400;
+}
+
+/* Линия состояния дороги (как текст + иконки позже) */
+.ts-state-line {
+  font-size: 0.9em;
+  margin-bottom: 6px;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Иконки автомобиля / скорости */
+.ts-icons-line {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.ts-ico {
+  width: 20px;
+  height: 20px;
+  opacity: 0.85;
+}
+
+/* Текст комментария */
+.ts-text {
+  font-size: 0.95em;
+  color: var(--color-text-main);
+  line-height: 1.45;
+  white-space: pre-line;
+  margin-bottom: 6px;
+}
+
+/* Автор внизу, всегда слева (аккуратнее читается) */
+.ts-author {
+  font-size: 0.85em;
+  color: var(--color-text-light);
+  margin-top: 4px;
+}
+
+/* Цветовая маркировка по состоянию */
+.ts-item.ts-good .ts-header,
+.ts-item.ts-good .ts-state-line { color: var(--color-green-soft); }
+
+.ts-item.ts-mid .ts-header,
+.ts-item.ts-mid .ts-state-line { color: var(--color-yellow-soft); }
+
+.ts-item.ts-bad .ts-header,
+.ts-item.ts-bad .ts-state-line { color: var(--color-red-soft); }
+
+.ts-item.old .ts-header,
+.ts-item.old .ts-state-line { color: #9e9e9e; }
+
+/* Кнопка "Оставить отзыв" */
+.ts-add {
+  margin-top: 12px;
+  border-top: 1px dashed var(--color-border);
+  padding-top: 10px;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+/* Надпись "Участок ~ ХХ км" */
+.ts-meta {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin-bottom: 6px;
+}
+
+/* Анимация */
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(-4px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* Мобильный вид */
+@media (max-width: 600px) {
+  .ts-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .ts-icons-line {
+    gap: 6px;
+  }
+}
+
+.ts-highlight {
+    background: rgba(255,230,150,0.6);
+    transition: background 0.4s ease;
+}
+
+/* =====================================================
+   TRACE INLINE PANEL
+   ===================================================== */
+
+.trace-inline-panel {
+    background: var(--color-bg-block);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 12px;
+
+    /* ключевые — чтобы ширина была как у отзывов */
+    width: auto;
+    max-width: 100%;     /* совпадает с отзывом */
+    box-sizing: border-box;
+
+    box-shadow: 0 1px 3px var(--color-panel-shadow);
+    position: relative;
+    z-index: 20;
+    font-size: 14px;
+}
+
+/* важно: чтобы выпадающие списки не обрезались */
+.trace-node,
+.town-col,
+.trace-inline-panel {
+    overflow: visible !important;
+}
+
+/* =====================================================
+   РЯДЫ
+   ===================================================== */
+
+.ts-row-2col {
+    display: flex;
+    gap: 20px;
+}
+
+.ts-subrow {
+    flex: 1;
+}
+
+.ts-subrow label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.ts-subrow select,
+.ts-subrow input,
+.ts-subrow textarea {
+    width: 100%;
+    padding: 7px 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: #fff;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+
+.ts-form-row {
+    margin-bottom: 16px;
+}
+
+.ts-row-2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ts-row-2 > label {
+    width: 160px;
+    flex-shrink: 0;
+}
+
+.ts-field {
+    flex: 1;
+}
+
+.ts-duo {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+/* =====================================================
+   ПОЛЯ
+   ===================================================== */
+
+.ts-form-row select,
+.ts-form-row input[type=text],
+.ts-form-row input[type=number],
+.ts-form-row textarea {
+    width: 100%;
+    padding: 7px 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: #fff;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea { resize: vertical; }
+
+/* =====================================================
+   ПОДСКАЗКИ
+   ===================================================== */
+
+.ts-info-note {
+    font-size: 13px;
+    color: var(--color-text-light);
+    margin: -4px 0 12px 0;
+}
+
+/* =====================================================
+   ПОЛЬЗОВАТЕЛЬ
+   ===================================================== */
+
+.ts-user {
+    background: #eee;
+    border-radius: 6px;
+    padding: 7px 8px;
+    font-size: 14px;
+}
+
+
+
+
+/* --- узлы трассы --- */
+.trace-node {
+  display: grid;
+  grid-template-columns: 110px 34px 1fr;
+  align-items: flex-start;
+  padding: 8px 0 10px;
+  border-bottom: 1px dotted var(--color-border);
+}
+.trace-node:last-child { border-bottom: none; }
+
+/* километраж */
+.km-col {
+  text-align: right;
+  font-weight: 600;
+  color: var(--color-text-light);
+  font-size: 1em;
+  line-height: 1.2;
+  padding-right: 4px;
+}
+
+/* центральная линия и точки */
+.point-col {
+  position: relative;
+  width: 34px;
+}
+.point-dot {
+  width: 11px;
+  height: 11px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  margin: 0 auto;
+  z-index: 2;
+}
+.point-line {
+  position: absolute;
+  left: 50%;
+  top: 11px;
+  bottom: -11px;
+  width: 2px;
+  background: #bfb8a2;
+  transform: translateX(-50%);
+  z-index: 1;
+  animation: traceDraw 1.2s ease-in-out forwards;
+}
+
+/* оформление начала и конца трассы */
+.trace-node:first-child .point-dot {
+  background: var(--color-bg-main);
+  border: 3px solid var(--color-accent);
+}
+.trace-node:last-child .point-dot {
+  background: var(--color-accent);
+  border: 2px solid var(--color-bg-main);
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+.trace-node:last-child .point-line { display: none; }
+
+/* города и иконки */
+.town-col a {
+  font-weight: 600;
+  color: var(--color-text-main);
+  line-height: 1.3;
+  font-size: 1em;
+}
+.town-col a:hover { color: var(--color-accent-dark); }
+.town-col .town-icons img { margin-left: 4px; opacity: 0.9; }
+
+/* ============================================================
+   ПЕРЕКРЁСТКИ ТРАСС
+   ============================================================ */
+.cross-box {
+  margin-top: 5px;
+  padding-left: 18px;
+  border-left: 1px dotted var(--color-border);
+}
+.cross-trace {
+  position: relative;
+  display: block;
+  color: #46684e;
+  font-size: 0.9em;
+  margin: 3px 0;
+  padding-left: 26px;
+  transition: color 0.2s ease;
+}
+.cross-trace::before {
+  content: "→"!important;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #0078d7;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.7em;
+  line-height: 16px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+.cross-trace:hover { color: var(--color-accent); text-decoration: underline; }
+.cross-trace:hover::before { background: #005fa3; }
+
+/* ============================================================
+   ЛЕГЕНДА ТРАССЫ
+   ============================================================ */
+.trace-legend {
+  margin-top: 20px;
+  background: #f7f5ed;
+  border-left: 4px solid var(--color-accent);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.trace-legend-title {
+  background: #eeeadd;
+  font-weight: 600;
+  padding: 6px 12px;
+  font-size: 0.95em;
+  color: var(--color-accent-dark);
+  border-bottom: 1px solid #e2ddcc;
+}
+.trace-legend-body {
+  padding: 10px 14px;
+  font-size: 0.9em;
+  color: var(--color-text-main);
+  line-height: 1.4;
+}
+.trace-legend-body span {
+  display: inline-flex;
+  align-items: center;
+  margin: 3px 10px 3px 0;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+/* квадраты состояния */
+.trace-state-box {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.15);
+  vertical-align: middle;
+  cursor: pointer;
+  transition: transform 0.15s ease-in-out;
+}
+.trace-state-box:hover { transform: scale(1.25); }
+.trace-state-box.is-active {
+  outline: 2px solid rgba(0,0,0,.14);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* статусы — синхронизированы с расширенной палитрой */
+.trace-state-box.good  { background: var(--color-green-soft, #4caf50); }
+.trace-state-box.mid   { background: var(--color-yellow-soft, #ffc107); }
+.trace-state-box.bad   { background: var(--color-red-soft, #f44336); }
+.trace-state-box.old  { background: #9e9e9e; }
+
+.trace-legend-body .good i { background: var(--color-green-soft, #4caf50); }
+.trace-legend-body .mid  i { background: var(--color-yellow-soft, #ffc107); }
+.trace-legend-body .bad  i { background: var(--color-red-soft, #f44336); }
+.trace-legend-body .old i { background:#9e9e9e; }
+
+.trace-legend .trace-legend-body span i {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.15);
+  margin-right: 4px;
+  box-sizing: border-box;
+}
+
+/* кружки городов */
+.dot-sample {
+  display:inline-block;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  border:1px solid rgba(0,0,0,0.15);
+  vertical-align:middle;
+}
+.dot-sample.main  { background:var(--color-accent); }
+.dot-sample.small { background:#b9b5a8; }
+.dot-sample.cross { background:var(--color-accent-dark); }
+.dot-sample.cross::before {
+    content: "→";
+    font-size: 11px;
+    line-height: 11px;
+}
+.dot-sample.start {
+  background:var(--color-bg-main);
+  border:3px solid var(--color-accent);
+}
+.dot-sample.end {
+  background:var(--color-accent);
+  border:2px solid var(--color-bg-main);
+  box-shadow:0 0 0 2px var(--color-accent);
+}
+
+/* ============================================================
+   АНИМАЦИЯ И АДАПТИВ
+   ============================================================ */
+@keyframes traceDraw {
+  from { height: 0; opacity: 0; }
+  to   { height: 100%; opacity: 1; }
+}
+@media (max-width: 768px) {
+  .trace-legend-body { font-size: 0.9em; }
+}
+
+/* --- панель состояния: фиксируем поведение на мобильных --- */
+
+@media (max-width: 600px) {
+    
+    .trace-node {
+        grid-template-columns: 50px 34px 1fr;
+    }    
+    
+    .trace-node .town-col {
+      padding-left: 4px !important;
+      padding-right: 4px !important;
+      width: 100% !important;
+      
+  }
+
+  /* сама панель */
+  .trace-inline-panel {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100% !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+      box-sizing: border-box;
+  }
+
+  
+  /* расстояние между панелью и иконками точки */
+  .trace-node .point-col {
+      margin-left: 0 !important;
+  }
+
+  
+
+
+  /* поля внутри формы */
+  .ts-row-2col {
+      flex-direction: column !important;
+      gap: 10px !important;
+  }
+
+  .ts-subrow {
+      width: 100% !important;
+  }
+
+  .ts-subrow select,
+  .ts-subrow input {
+      width: 100% !important;
+  }
+
+  /* дата и кнопка чуть крупнее — иначе теряются */
+  .ts-form-buttons button {
+      width: 100%;
+  }
+  
+
+
+    /* основной текст панели */
+    .trace-inline-panel {
+        font-size: 15px;
+    }
+
+    /* метки к полям */
+    .ts-form-row label {
+        font-size: 15px;
+    }
+
+    /* селекты и инпуты (чтобы не были микро) */
+    .ts-form-row select,
+    .ts-form-row input[type=text],
+    .ts-form-row input[type=number],
+    .ts-form-row textarea {
+        font-size: 16px;
+        padding: 9px 10px; /* чуть выше кликабельность */
+    }
+
+    /* подписи под формой */
+    .ts-info-note {
+        font-size: 14px;
+    }
+
+    /* надписи даты и км в отзывах */
+    .ts-row-top {
+        font-size: 15px;
+    }
+
+    /* сам текст комментария */
+    .ts-comment {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    /* автор */
+    .ts-author {
+        font-size: 14px;
+    }
+
+    /* мета над отзывами */
+    .ts-meta {
+        font-size: 13px;
+    }
+
+}
+
+/* ============================================================
+   КАТАЛОГ ТРАСС — ЧИСТАЯ АДАПТИВНАЯ ВЕРСИЯ (ФИНАЛ)
+   ============================================================ */
+
+/* Блок секции */
+.trace-block {
+    margin-bottom: 40px;
+}
+
+/* -------------------------------
+   ГЛАВНАЯ СЕТКА КАРТОЧЕК
+   ------------------------------- */
+.trace-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1200px) {
+    .trace-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+@media (max-width: 900px) {
+    .trace-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 540px) {
+    .trace-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.trace-classes {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.trace-classes .cls-item {
+  white-space: nowrap;
+}
+
+.trace-classes .sep {
+  margin: 0 6px;
+  flex: 0 0 auto;
+}
+
+
+/* ============================================================
+   КАРТОЧКИ ТРАСС
+   ============================================================ */
+
+.trace-card {
+    border: 1px solid #dcdcdc;
+    background: #fff;
+    border-radius: 6px;
+    padding: 14px;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.trace-card a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Заголовок трассы */
+.tc-code {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+/* Подписи */
+.tc-name,
+.tc-sub,
+.tc-mini-title,
+.tc-mini-sub {
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+/* Мобильный текст */
+@media (max-width: 540px) {
+    .trace-card { padding: 12px; }
+    .tc-code    { font-size: 18px; }
+    .tc-name,
+    .tc-sub,
+    .tc-mini-title,
+    .tc-mini-sub { font-size: 13px; }
+}
+
+/* ============================================================
+   ПОИСК ПО ГОРОДУ (адаптивный)
+   ============================================================ */
+
+.trace-search-block {
+    margin: 25px 0;
+    padding: 15px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fafafa;
+}
+
+.trace-search-block form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.trace-search-block input[type=text] {
+    padding: 7px 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 15px;
+    max-width: 280px;
+}
+
+.trace-search-block button {
+    padding: 7px 16px;
+    border: none;
+    background: #3a7f3a;
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* поиск на мобильных */
+@media (max-width: 600px) {
+    .trace-search-block input[type=text] {
+        width: 100%;
+        max-width: 100%;
+    }
+    .trace-search-block button {
+        width: 100%;
+    }
+}
+
+/* ============================================================
+   ЗАЩИТА ОТ Bootstrap (выключаем float/flex, которые ломали сетку)
+   ============================================================ */
+
+.trace-grid,
+.trace-card {
+    float: none !important;
+    flex: none !important;
+}
+
+/* Bootstrap row не должен ломать ширину */
+.trace-grid {
+    max-width: 100%;
+}
+
+
+/* === КОРЗИНА: КАРТОЧКИ ====================================== */
+
+#baskettable{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#baskettable .basket-row td{
+  padding: 0;
+  border: none;
+}
+
+.basket-item{
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 8px 0;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* верхняя часть карточки */
+
+.basket-item__top{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.basket-item__main{
+  flex: 1 1 160px;
+  font-size: 14px;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.basket-item__controls{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+/* кнопки вверх/вниз */
+
+.basket-item__move{
+  display: flex;
+  gap: 6px;
+}
+
+.btn-move{
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  background: #f7f7f7;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* вырезать/вставить */
+
+.basket-item__cut{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: stretch;
+}
+
+.btn-cut{
+  min-width: 80px;
+  border-radius: 4px;
+  border: 1px solid #c33;
+  background: #ffecec;
+  padding: 4px 6px;
+  font-size: 12px;
+}
+
+/* блок комментария */
+
+.basket-item__comment-block{
+  margin-top: 8px;
+}
+
+.basket-comment{
+  font-size: 13px;
+  line-height: 1.3;
+  padding: 6px 0;
+  word-break: break-word;
+  cursor: text;
+}
+
+.basket-comment--editing{
+  outline: 1px solid #99c2ff;
+  background: #f7fbff;
+}
+
+/* панель форматирования */
+
+.basket-edit-toolbar{
+  margin-top: 4px;
+}
+
+.basket-edit-toolbar .atb{
+  display: inline-block;
+  margin-right: 4px;
+  padding: 2px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+/* мобильная адаптация, включая iPhone SE */
+
+@media (max-width: 600px){
+  .basket-item{
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  .basket-item__top{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .basket-item__controls{
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .basket-item__move{
+    order: 1;
+  }
+
+  .basket-item__cut{
+    order: 2;
+  }
+
+
+/* убираем влияние таблицы на карточки */
+.basket-cell {
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+}
+
+.basket-item {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin: 10px 0;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* верх блока */
+.basket-item__top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.basket-item__main {
+    flex: 1 1 auto;
+    font-size: 14px;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.basket-item__controls {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+/* перемещение */
+.basket-item__move {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-move {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    background: #f7f7f7;
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* вырезать / вставить */
+.basket-item__cut {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+
+/* комментарий */
+.basket-item__comment-block { margin-top: 10px; }
+
+.basket-comment {
+    font-size: 13px;
+    line-height: 1.3;
+    padding: 6px 0;
+    word-break: break-word;
+    cursor: text;
+}
+
+.basket-comment--editing {
+    outline: 1px solid #99c2ff;
+    background: #f7fbff;
+}
+
+    .basket-item__controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    
+    .btn-cut {
+       min-width: 90px;
+     border: 1px solid #c33;
+    background: #ffecec;
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    }
+    .basket-item__main .travell5m, .basket-comment{
+        font-size: 1.3em!important;
+    }
+    .basket-item__main p i {
+        display: none !important;
+    }
+    .basket-item__controls {
+        display: flex;
+        flex-direction: row !important;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .basket-item__move,
+    .basket-item__cut {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+    }
+
+    .btn-move,
+    .btn-cut {
+        width: auto !important;
+        margin: 0 !important;
+    }
+}
+
+.area-nav {
+    list-style: none;
+    margin: 10px 0 20px 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+}
+
+.area-nav li {
+    display: inline-block;
+}
+
+.area-nav a {
+    color: #005e2b;           /* как travell5r */
+    text-decoration: none;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.area-nav a:hover {
+    text-decoration: underline;
+}
+
+#gmapv3 {
+    width: 100% !important;
+    height: min(60vh, 500px) !important;
+}
+.panel-body #gmapv3 {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ==========================
+   FOOTER (обновлённый стиль, на переменных)
+   ========================== */
+
+.site-footer {
+    padding: 35px 10px 45px;
+    background: var(--color-bg-block);
+    font-family: 'JakobExtraCTT', sans-serif;
+}
+
+.site-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* --- Навигация --- */
+.site-footer-nav {
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.site-footer-nav .footer-link {
+    color: var(--color-accent);        /* фирменный зелёный */
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.site-footer-nav .footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-sep {
+    color: var(--color-text-light);    /* мягкий, спокойный разделитель */
+}
+
+/* --- Контактная строка --- */
+.site-footer-contact {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--color-text-light);
+}
+
+.site-footer-contact .footer-link {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.site-footer-contact .footer-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Копирайт --- */
+.site-footer-copy {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--color-text-light);
+    opacity: 0.85;                      /* делаем тише */
+}
+
+/* --- Счётчики --- */
+.site-footer-counters {
+    margin-top: 10px;
+}
+
+.site-footer-counters .footer-counter {
+    display: inline-block;
+    margin: 0 3px;
+    vertical-align: middle;
+}
+
+/* ==========================
+   FOOTER — ADAPTIVE
+   ========================== */
+
+/* планшет и ниже */
+@media (max-width: 900px) {
+    .site-footer-nav {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+
+    .site-footer-nav .footer-link {
+        margin: 0 6px;
+        display: inline-block;
+        line-height: 1.5;
+    }
+
+    .site-footer-inner {
+        padding: 0 10px;
+    }
+}
+
+/* мобильные, вертикально */
+@media (max-width: 600px) {
+
+    .site-footer-nav {
+        font-size: 14px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 12px;  /* межстрочный и горизонтальный ритм */
+    }
+
+    .site-footer-nav .footer-link {
+        margin: 0;
+        flex: 0 1 auto;
+    }
+
+    .footer-sep {
+        display: none; /* точки-разделители на мобилке лишние */
+    }
+
+    .site-footer-contact {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .site-footer-copy {
+        font-size: 13px;
+        margin-top: 12px;
+    }
+
+    .site-footer-counters {
+        margin-top: 12px;
+    }
+
+    .site-footer-counters .footer-counter {
+        display: inline-block;
+        margin: 4px 5px;
+    }
+}
+
+/* очень маленькие экраны (SE, старые Android) */
+@media (max-width: 400px) {
+
+    .site-footer-nav {
+        gap: 4px 8px;
+    }
+
+    .site-footer-contact {
+        font-size: 13px;
+        line-height: 1.3;
+    }
+
+    .site-footer-copy {
+        font-size: 12px;
+    }
+
+    .site-footer-counters .footer-counter {
+        margin: 3px;
+    }
+}
+/* ============================================================
+   Общая сетка каталога
+   ============================================================ */
+
+.trace-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 12px 0 25px;
+}
+
+/* Общий стиль карточек */
+
+.trace-card {
+    background: var(--color-bg-block);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: var(--color-text-main);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.trace-card a {
+    color: var(--color-text-main);
+    text-decoration: none;
+}
+
+.trace-card:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,.08);
+    border-color: var(--color-accent);
+}
+
+
+/* ============================================================
+   Крупные карточки (большие дороги)
+   ============================================================ */
+
+.trace-card.big {
+    width: calc(25% - 14px);
+    min-width: 220px;
+    max-width: 280px;
+    height: 90px;                     /* фиксированная высота – ритм */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;              /* центрируем оба уровня */
+    padding: 10px 12px;
+    text-align: center;
+    overflow: hidden;                 /* чтобы текст не вылезал */
+}
+
+/* Номер — главный акцент */
+.tc-code {
+    font-size: 1.6em;                 /* заметно увеличено */
+    font-weight: 700;
+    color: var(--color-accent);
+    margin: 2px 0 4px 0;
+    padding: 0;
+    line-height: 1em;
+}
+
+/* Название — обычный текст, урезанный многоточием */
+.tc-name {
+    font-size: 0.82em;
+    font-weight: normal;
+    color: var(--color-text-main);
+    line-height: 1.1em;
+    max-height: 2.2em;                /* две строки максимум */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;             /* многострочное многоточие */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;            /* две строки */
+}
+
+
+/* ============================================================
+   Средние карточки (small) — для L / X
+   ============================================================ */
+
+.trace-card.small {
+    width: calc(20% - 14px);
+    min-width: 180px;
+    height: 90px;
+
+    text-align: center;
+    padding-top: 14px;
+}
+
+.trace-card.small .tc-code {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--color-accent-dark);
+}
+
+.trace-card.small .tc-sub {
+    font-size: 0.8em;
+    color: var(--color-text-light);
+}
+
+
+
+/* =============================
+   Мини-карточки для P и D
+   ============================= */
+
+.trace-card.mini {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px 14px;
+    background: var(--color-bg-block);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+
+    font-size: 0.95em;
+    color: var(--color-text-main);
+    text-align: center;
+
+    line-height: 1.25em;
+    box-shadow: 0 1px 2px var(--color-panel-shadow);
+}
+
+.trace-card.mini a {
+    text-decoration: none;
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.trace-card.mini:hover {
+    border-color: var(--color-accent);
+}
+
+/* сетка */
+.trace-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin: 12px 0 24px;
+}
+
+/* ============================================================
+   Заголовки и блоки
+   ============================================================ */
+
+.trace-block h2 {
+    margin-top: 35px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 4px;
+    color: var(--color-text-main);
+    font-size: 1.4em;
+}
+
+.trace-block h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.15em;
+    color: var(--color-text-main);
+    border-left: 3px solid var(--color-accent);
+    padding-left: 6px;
+}
+
+
+.admin-photo-item {
+    padding: 20px 0;
+}
+
+.admin-photo-info p {
+    font-size: 14px;
+    margin: 6px 0;
+}
+
+.admin-big-photo {
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    border: 1px solid #ccc;
+    padding: 4px;
+    background: #fafafa;
+}
+
+.warn {
+    color: #b30000;
+    font-weight: bold;
+}
+
+.adm-btn {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 3px 0;
+    background: #e9e6d8;
+    border: 1px solid #c8c2ae;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+}
+
+.adm-btn:hover {
+    background: #ddd7c4;
+}
+
+.adm-btn.primary {
+    background: #d7ceb4;
+    border-color: #b5ae97;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+/* FAQ блок для совместных поездок */
+
+.faq-ourtrip {
+  margin: 18px 0 20px;
+}
+
+.faq-ourtrip h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.faq-ourtrip h3 {
+  margin-top: 14px;
+  margin-bottom: 4px;
+  font-size: 1.02em;
+}
+.ourtrip-forum-select {
+  max-width: 320px;
+}
+
+/* контейнер фото */
+.autocard-photo {
+    position: relative;
+    width: 100%;
+    height: 360px;            /* КЛЮЧЕВОЕ */
+    overflow: hidden;
+    background: #f3f3f3;
+}
+
+/* сама картинка */
+.autocard-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* НЕ тянет, а обрезает */
+    object-position: top;
+    display: block!important;
+}
+/* карточка */
+.autocard-mini {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* заголовок + рейтинг — фиксированная высота */
+.autocard-mini .panel-heading {
+    min-height: 74px; /* подбирается, но важно — одинаково */
+}
+
+
+
+/* кнопка */
+.autocard-toggle-wrap {
+    margin-top: auto;         /* прижимает кнопку вниз */
+    text-align: center;
+    padding: 6px 0;
+}
+
+.autocard-title {
+    min-height: 42px;
+}
+
+
+/* ===== Area hubs (верхний уровень) ===== */
+
+.area-hub {
+  margin: 10px 0 18px;
+}
+
+.area-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+@media (max-width: 1200px) {
+  .area-hub-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 992px) {
+  .area-hub-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .area-hub-grid { grid-template-columns: 1fr; }
+}
+
+.area-hub-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 12px;
+  background: var(--color-bg-block);
+  text-decoration: none;
+}
+
+.area-hub-card:hover,
+.area-hub-card:focus {
+  border-color: rgba(0,0,0,0.18);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  text-decoration: none;
+}
+
+.area-hub-ico {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.area-hub-ico img {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+.area-hub-title {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.area-hub-sub {
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: .75;
+}
+
+.travel-notes-content { display: none; }
+.travel-notes.open .travel-notes-content { display: block; }
+
+.travel-notes-toggle {
+    cursor: pointer; 
+    font-weight: 600; 
+    user-select: none; 
+position: relative;
+  z-index: 5;}
+.travel-notes-toggle::before { 
+    content: "▸ "; 
+position: relative;
+  z-index: 5;}
+.travel-notes.open .travel-notes-toggle::before { content: "▾ "; }
+
+.faq-ourtrip {
+    margin-top: 25px;
+}
+
+/* Заголовок FAQ */
+.faq-header {
+    font-family: var(--brand-font);
+    font-size: 1.25em;
+    color: var(--color-text-main);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    user-select: none;
+}
+
+/* Иконка стрелки */
+.faq-chevron {
+    transition: transform .25s ease;
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+/* Содержимое FAQ */
+.faq-content {
+    display: none;
+    margin-top: 10px;
+}
+
+.faq-open .faq-content {
+    display: block;
+}
+
+.faq-open .faq-chevron {
+    transform: rotate(90deg);
+}
+
+.faq-ourtrip h3 {
+    font-family: var(--brand-font);
+    font-size: 1.05em;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    color: var(--color-text-main);
+}
+
+
+.faq-ourtrip {
+    margin-top: 25px;
+}
+
+
+
+/* Иконка стрелки */
+.faq-chevron {
+    transition: transform .25s ease;
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+
+
+
+
+
+/*** Что привезти ***/
+/* сетка карточек */
+.bring-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 10px 0 18px 0;
+}
+
+/* карточка */
+.bring-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-block);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* фото (ровная высота) */
+.bring-photo {
+  display: block;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+.bring-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* тело */
+.bring-body {
+  padding: 12px 14px 14px 14px;
+}
+
+/* заголовок */
+.bring-title {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.bring-title:hover {
+  text-decoration: underline;
+}
+
+/* строка город · тип (в стиле Autotravel: город зелёный как ссылка, не жирный) */
+.bring-meta {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.25;
+}
+.bring-city {
+  color: inherit;
+  text-decoration: none;
+}
+.bring-city:hover {
+  text-decoration: underline;
+}
+.bring-dot {
+  padding: 0 6px;
+  color: #666;
+}
+.bring-type {
+  color: #333;
+}
+
+/* текст (до 4 строк) */
+.bring-text {
+  margin-top: 8px;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================================
+   РЕДАКТОР ПОЕЗДКИ — ЛОКАЛЬНЫЕ СТИЛИ (ВСТРАИВАЮТСЯ В ОБЩИЙ CSS)
+   ============================================================ */
+
+
+
+/* ----- Блок поездки / панели / формы ----- */
+
+#basket-editor .editor-section {
+    background: var(--color-bg-block);
+    border: 1px solid var(--color-border);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 2px var(--color-panel-shadow);
+}
+
+
+#basket-editor .editor-section input[type="text"] {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background: #fff;
+    font-family: var(--brand-font);
+}
+
+
+
+/* ---------- note-block ---------- */
+
+#basket-editor .note-block {
+    background: #f1efe7;
+    border-left: 5px solid var(--color-accent);
+    padding: 10px 18px;
+    border-radius: 4px;
+    margin: 14px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+/* ---------- Элементы редактора маршрута ---------- */
+
+#basket-editor .basket-point {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px var(--color-panel-shadow);
+}
+
+#basket-editor .basket-text {
+    background: var(--color-bg-block);
+    border: 1px dashed var(--color-border);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+#basket-editor .basket-text textarea {
+    width: 100%;
+    border: none;
+    background: transparent;
+    resize: vertical;
+    font-size: 14px;
+    color: var(--color-text-main);
+}
+
+/* ----- Зона вставки ----- */
+
+#basket-editor .paste-zone {
+    background: rgba(227, 197, 75, 0.15);
+    border: 1px dashed var(--color-yellow-soft);
+    padding: 6px 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 12px 0;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--color-text-light);
+}
+#basket-editor .paste-zone:hover {
+    background: rgba(227, 197, 75, 0.28);
+}
+
+/* ----- Доп. оттенок при вырезании ----- */
+
+#basket-editor .basket-cut {
+    opacity: .55;
+}
+
+/* Внешняя рамка блока */
+.basket-block {
+    background: var(--color-bg-block);
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    padding: 15px 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 4px var(--color-panel-shadow);
+}
+
+/* Заголовок блока */
+.basket-block .block-title {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Инпут для названия блока — компактнее */
+.basket-block input.block-title {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background: #fff;
+    margin-bottom: 12px;
+}
+
+/* Вставка текста — внутри блока */
+.block-tools {
+    margin-bottom: 10px;
+}
+
+
+/* свернутые элементы */
+.block-body.collapsed { display:none; }
+.object-extra.collapsed { display:none; }
+
+/* треугольники */
+.toggle-block, .toggle-object {
+    cursor:pointer;
+    margin-right:6px;
+    display:inline-block;
+}
+
+/* вырезанные */
+.basket-cut {
+    opacity:0.5;
+    text-decoration: line-through;
+}
+
+/* режим только чтение */
+.readonly input,
+.readonly textarea,
+.readonly .text-line[contenteditable="true"] {
+    pointer-events:none;
+    opacity:0.7;
+}
+
+
+
+/* поле редактирования строки */
+.text-line {
+    display: block !important;
+    padding: 4px 6px;
+    min-height: 20px;
+    line-height: 1.2;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow-wrap: break-word;
+    white-space: normal !important;
+}
+.text-line b,
+.text-line strong {
+    font-weight: bold !important;
+}
+.text-line i,
+.text-line em {
+    font-style: italic !important;
+}
+.text-line[contenteditable="true"] {
+    outline: 1px solid #ddd;
+    border-radius: 4px;
+}
+.text-line[contenteditable="true"]:focus {
+    outline: 1px solid #666;
+}
+
+/* тулбар редактора */
+.editor-toolbar button {
+    border: 1px solid #ccc;
+    padding: 2px 6px;
+    margin: 4px;
+    border-radius: 3px;
+    background: #f7f7f7;
+    cursor: pointer;
+}
+
+/* вырезать / вставить */
+.editor-toolbar .btn-cut {
+    font-size: 12px;
+}
+.editor-toolbar .btn-paste {
+    font-size: 12px;
+}
+
+/* Sortable-призрак */
+.sortable-ghost {
+    opacity: 0.6;
+    background: #f0f0f0;
+}
+
+/* ручки перетаскивания */
+.drag-handle,
+.block-drag-handle {
+    cursor: grab;
+    display: inline-block;
+    padding: 0 6px;
+    font-size: 18px;
+    color: #888;
+}
+.drag-handle:hover,
+.block-drag-handle:hover {
+    color: #000;
+}
+.drag-handle:active,
+.block-drag-handle:active {
+    cursor: grabbing;
+}
+
+/* иконка карты блока */
+.block-map-icon {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.block-map-icon:hover {
+    opacity: 0.7;
+}
+
+/* подсветка новой строки после добавления */
+.highlight-new {
+    box-shadow: 0 0 0 2px #ffc107;
+    transition: box-shadow 0.8s ease-out;
+}
+
+
+
+/* --- Общая структура --- */
+.cube-header,
+.cube-breadcrumbs,
+.cube-intro,
+.cube-topmenu {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.cube-header {
+  margin: 12px 0 8px;
+}
+
+.cube-header h1 {
+  font-family: var(--brand-font);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: #004d2a;
+  margin: 16px auto 8px;
+  line-height: 1.3;
+}
+
+.cube-breadcrumbs {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.cube-intro {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 18px auto 10px;
+  padding: 0 10px;
+  max-width: 900px;
+  text-align: center;
+}
+
+/* --- Верхнее меню --- */
+.cube-topmenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin: 14px 0 18px;
+}
+
+.cube-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #00552B;
+  font-family: var(--brand-font);
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: opacity 0.2s ease;
+}
+
+.cube-link img {
+  width: 40px;
+  height: auto;
+  margin-right: 6px;
+  position: relative;
+  top: 3px;
+}
+
+.cube-link:hover img {
+  opacity: 1;
+}
+
+
+.cube-scroll {
+  overflow: auto;
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+  max-height: 80vh;
+  
+}
+
+.cube-wrapper {
+  overflow: auto;
+  position: relative;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+/* --- Таблица --- */
+#cubedata {
+  border-collapse: collapse;
+  font-size: 14px;
+  width: 100%;
+  min-width: 100%;
+  border: 1px solid #ddd;
+  table-layout: auto;
+}
+
+#cubedata th,
+#cubedata td {
+  border: 1px solid #ddd;
+  padding: 6px 6px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* фиксированная шапка */
+#cubedata thead th {
+  position: sticky;
+  top: 0;
+  background: #f9f7f1;
+  border-bottom: 2px solid #bbb;
+  z-index: 10;
+  height: 36px;
+}
+
+/* первый столбец */
+#cubedata th:first-child,
+#cubedata td:first-child {
+  position: sticky;
+  left: 0;
+  background: #f9f7f1;
+  z-index: 5;
+  text-align: left;
+}
+
+/* чередование строк */
+#cubedata tbody tr:nth-child(odd) { background: #fdfdfc; }
+#cubedata tbody tr:nth-child(even){ background: #f6f4ef; }
+
+/* подсветка строки */
+#cubedata tbody tr:hover td {
+  background: #ece7db !important;
+}
+#cubedata.footable {
+  display: table !important;
+}
+#cubedata.footable thead,
+#cubedata.footable tbody,
+#cubedata.footable tr {
+  display: table-row-group !important;
+}
+
+/* --- Подсказка о горизонтальной прокрутке --- */
+@media screen and (max-width: 768px) {
+  .cube-scroll::before {
+    content: '⟵  прокрутите таблицу  ⟶';
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 6px;
+    opacity: 0.8;
+  }
+}
+
+/* --- Мобильная адаптация --- */
+@media screen and (max-width: 992px) {
+  .container-fluid,
+  #maincontainer {
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 10px;
+    margin: 0;
+  }
+
+  .cube-header h1,
+  .cube-breadcrumbs,
+  .cube-intro {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .cube-intro {
+    font-size: 13px;
+    margin: 10px auto;
+    padding: 0 8px;
+  }
+
+  .cube-topmenu {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  #cubedata th,
+  #cubedata td {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
+
+.cube-mobile {
+  margin: 10px 0 20px 0;
+ }
+.cube-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 10px 6px;
+  background: #fdfdfc;
+  overflow: hidden;
+}
+
+.cube-card-header {
+  background: #f9f7f1;
+  padding: 10px 14px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #00552B;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cube-card-body {
+  display: none;
+  padding: 10px 14px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+}
+
+.cube-card-body a:hover {
+  background: #f3f0e9;
+}
+
+.cube-card-body a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #00552B;
+  text-decoration: none;
+  padding: 8px 4px;
+  border-bottom: 1px solid #eee;
+  gap: 8px; /* расстояние между иконкой и текстом */
+}
+
+
+
+.cube-card-body a span.label {
+  flex: 1;
+  text-align: left;
+  margin-left: 4px;
+  font-size: 0.98em;
+  color: #222;
+}
+
+.cube-card-body img {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-right: 6px;
+  opacity: 0.85;
+}
+
+.cube-card-body a span.count {
+  flex-shrink: 0;
+  min-width: 32px;
+  text-align: right;
+  font-weight: bold;
+  color: #222;
+}
+
+
+
+
+
+.cube-area-link {
+  flex: 1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cube-toggle {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 8px;
+  user-select: none;
+}
+
+
+
+.cube-card-body img {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.cube-card-body .label {
+  flex: 1;
+  margin-left: 6px;
+}
+
+.cube-card-body .count {
+  font-weight: 600;
+}
+

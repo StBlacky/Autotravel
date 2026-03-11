@@ -1,0 +1,1001 @@
+/* общие классы */
+
+.travell0 { /* обычный текст */
+  font: 12px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+  background-color: #EEE9D5;
+  margin-top: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.t0 { /* обычный текст */
+  font: 12px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+}
+.tcrumb { /* текст на кнопке */
+  font: 12px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+.t11 { /* 11 кегль */
+  font: 11px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+  background-color: #EEE9D5;
+}
+.t12 { /* 12 кегль */
+  font: 12px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+  background-color: #EEE9D5;
+}
+.t13 { /* 13 кегль */
+  font: 13px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+  background-color: #EEE9D5;
+}
+.t14 { /* 14 кегль */
+  font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+  background-color: #EEE9D5;
+}
+.t16 { /* 16 кегль */
+  font: 16px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+  background-color: #EEE9D5;
+}
+.t18 { /* 18 кегль */
+    font: 18px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+    background-color: #EEE9D5;
+}
+.tl { /* выравнивание влево*/
+    text-align: left;
+}
+.tc { /* выравнивание текста по центру*/
+    text-align: center;
+}
+.tj  { /* выравнивание текста по краям */
+    text-align: justify;
+    text-justify: inter-word;
+}
+.tdc { /* выравнивание объектов по центру*/
+    margin: auto;
+}
+.tb { /* полужирный */
+    font-weight: bold;
+}
+.tu { /* красный цвет */
+    color: #00603B;
+}
+.tz { /* зеленый цвет */
+     color:  #00552B;
+}
+
+.ttb { /* обрамление одинарной бледной рамкой без скруглений */
+    border-spacing: 0;
+    border-top: 1px solid #809080 ;
+    border-left: 1px solid #809080 ;
+    border-right: 1px solid #809080 ;
+    border-bottom: 1px solid #809080 ;
+}
+.ttb2 { /* обрамление бледной рамкой с квази-тенью без скруглений */
+    border-collapse: collapse;
+    border-top: 1px solid #809080 ;
+    border-left: 1px solid #809080 ;
+    border-right: 2px solid #809080 ;
+    border-bottom: 2px solid #809080 ;
+}
+.ttr { /* скругление рамки */
+    border-radius: 6px;
+}
+.ww { /* перенос букв длинного слова на новую строку */
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.tmt20 { /* сверху отступ 20 px */
+    margin-top: 20px;
+}
+.tm10 { /* отступ 10 */
+    margin: 10px;
+}
+
+.tdl { /* для dl dd dt заголовка в загранице */
+  width: 220px; /* ширина колонки */
+  float: left;
+}
+
+.tp10 { /* отступ 5+10 */
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+.latcbox{ /* для картинок внутри описания */
+    float:left; /* Выравнивание по левому краю */
+    margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+}
+.ratcbox{ /* для картинок внутри описания */
+    float: right; /* Выравнивание по правому краю  */ 
+    margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
+}
+
+.travell0b { /* белые клетки в календаре */
+    background-color: #FFFFFF;
+}
+
+.travell0g { /* зеленые клетки в календаре */
+    background-color: #CFFFCF;
+}
+
+.travell0o { /* с большими отступами */
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 30px;
+    margin-right: 50px;
+}
+
+.travell0t { /* для body общий класс */
+    background-color: #EEE9D5;
+    margin-top: 1px;
+/*    margin-left: 10px;
+    margin-right: 10px; */
+}
+
+.travell01f { /* для меню и столбцов */
+    border-left: 0px;
+    border-right: 1px solid #808080;
+    border-top:0px ;
+    border-bottom: 1px solid #808080 ;
+}
+
+.travell01r { /* для меню и столбцов */
+    border-left:1px solid #808080 ;
+    border-right: 0px ;
+    border-top:0px ;
+    border-bottom:0px ;
+}
+
+.travell01s { /* для меню и столбцов */
+    border-left: 0px ;
+    border-right: 0px ;
+    border-top: 0px ;
+    border-bottom: 0px ;
+    padding-left: 1%;
+    padding-right: 1%;
+    min-width: 450px;
+}
+
+.travell01t { /* для меню и столбцов */
+    border-left:0px ;
+    border-right: 1px solid #808080 ;
+    border-top:0px ;
+    border-bottom:0px ;
+}
+
+.travell01x { /* для меню */
+     border-left:0px;
+     padding-top:3px ;
+     padding-bottom:2px ;
+     padding-left:2px ;
+     border-right: 0px;
+     border-top:1px solid #ffffff ;
+     border-bottom:1px solid #808080 ;
+}
+
+.travell01y { /* для меню */
+     border-left:0px;
+     padding-top:3px ;
+     padding-bottom:2px ;
+     padding-left:2px ;
+     border-right: 0px;
+     border-top:0px ;
+     border-bottom:1px solid #808080;
+}
+
+.travell01z { /* для меню */
+     border-left:0px;
+     padding:2px ;
+     border-right: 0px;
+     border-top:1px solid #ffffff ;
+     border-bottom:0px ;
+}
+
+.travell5 {
+     font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     margin-top: 10px;
+     margin-bottom: 5px;
+     margin-left: 25px;
+     font-weight: bold;
+     text-align: left; /* display: inline-block; обтекаемые формы - этот класс использую для форм в отчетах */
+}
+
+.bottomr {
+    padding: 10px;
+    display: inline-block; /* обтекаемые формы - этот класс использую для форм в отчетах */
+}
+
+.travell5s {
+     font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;;
+     margin-top: 10px;
+     margin-bottom: 5px;
+     margin-left: 25px;
+     text-align: left;
+}
+
+.travell5c {
+     font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     background-color: #EEE9D5;
+     margin-top: 10px;
+     margin-bottom: 5px;
+     margin-left: 25px;
+     font-weight: bold;
+     text-align: left;
+     color:  #00552B;
+}
+
+.travell5m {
+     font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     text-align: left;
+     color:  #00552B;
+}
+
+.travell5q {
+     font: 16px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     color:  #00552B;
+}
+
+.travell5r {
+     font: 12px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     color:  #00552B;
+}
+
+.travell5n {
+     font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     color:  #00552B;
+}
+
+.travell5o {
+     font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     text-align: left;
+}
+
+.travell6 {
+     font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     margin-top: 1px;
+     margin-left: 10px;
+     margin-right: 10px;
+}
+
+.travell9 {
+     font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     margin-top: 10px;
+     margin-bottom: 5px;
+     margin-left: 35px;
+     font-weight: bold;
+     text-align: left;
+}
+
+.travel01 {
+     margin-top: -3px;
+}
+
+
+.travel0 {
+     margin-top: 1px;
+     margin-left: 10px;
+     margin-right: 10px;
+}
+
+.head {
+     margin-top: -3px;
+}
+
+.smallest {font: 13px/1.3 Tahoma, Arial, Helvetica, sans-serif;}
+.small {font: 13px/1.3 Tahoma, Arial, Helvetica, sans-serif;}
+.normal {font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;}
+.big {font: 16px/1.3 Tahoma, Arial, Helvetica, sans-serif;}
+.biggest {font: 18px/1.5 Tahoma, Arial, Helvetica, sans-serif;}
+
+.travel1 {
+     font: 16px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     margin-top: 1px;
+     margin-left: 10px;
+     margin-right: 10px;
+
+}
+
+.travel10 {
+     font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     margin-top: 10px;
+     margin-bottom: 5px;
+     font-weight: bold;
+     text-align: center;
+}
+
+.travel11 {
+     font: 16px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     margin-top: 20px;
+     margin-bottom: 10px;
+     font-weight: bold;
+     text-align: center;
+}
+.travel12 {
+     font: 18px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     margin-top: 20px;
+     margin-bottom: 10px;
+     font-weight: bold;
+     text-align: center;
+}
+
+.travel13 {
+     font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+     margin-top: 10px;
+     margin-bottom: 5px;
+     font-weight: normal;
+     text-align: center;
+}
+
+
+.news {
+     font: 13px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+}
+
+/* a {color:  #000000;} */
+a:link {
+  color: #00552B;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:visited {
+  color: #00552B;
+}
+
+a:hover {
+  color: #cc0000;
+  text-decoration: underline;
+}
+
+.gensmall { font-size : 90%; }
+.gensmall { color : #0000ff; }
+
+.helpline { background-color: #EEE9D5; border-style: none; }
+
+a.buttr {   text-decoration: none; 
+            background-color: #ECECEC;
+            border:  solid 1px black;
+            padding: 6px;
+}
+
+a.buttr:hover { color: #00552B; font-weight: bold;}
+
+.button {
+  font: 13px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+  color:#00552B;
+  background-color: #d0d0d0;
+  padding: 6px;
+  margin-top: 0px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-radius: 6px;
+  border-top: 1px solid #809080 ;
+  border-left: 1px solid #809080 ;
+  border-right: 2px solid #809080 ;
+  border-bottom: 2px solid #809080 ;   
+}
+
+input.atb{
+   color:#00552B;
+   font-weight: bold;
+   font-family: Tahoma, Arial,Helvetica,sans-serif;
+   font-style: normal;
+   font-size: 14px;
+   line-height: 1.3;
+   border-radius: 6px;
+   border-top: 1px solid #809080 ;
+   border-left: 1px solid #809080 ;
+   border-right: 2px solid #809080 ;
+   border-bottom: 2px solid #809080 ;   
+}
+
+input.atc{
+   color:#00552B;
+   font-weight: bold;
+   font-family: Tahoma, Arial,Helvetica,sans-serif;
+   font-style: normal;
+   font-size: 12px;
+   line-height: 1.3;
+   border-radius: 6px;
+   border-top: 1px solid #809080 ;
+   border-left: 1px solid #809080 ;
+   border-right: 2px solid #809080 ;
+   border-bottom: 2px solid #809080 ;   
+}
+
+#test00form { /* используются в поиске */
+     visibility: hidden;
+     display: none;
+}
+#test01form { /* используются в поиске */
+     visibility: visible;
+     display: block;
+}
+
+.deleted { /* при редактировании корзины */
+  text-decoration:line-through;
+}
+
+.geoxml3_infowindow { /* всплывающее окно на карте */
+  font: 12px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+  width: 330px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: left;
+}
+
+.message {
+  width: 100%;
+}
+
+/* .ms это запчасти от мультиселекта */
+.ms-options-wrap,
+.ms-options-wrap * {
+    box-sizing: border-box;
+}
+.ms-options-wrap > button:focus,
+.ms-options-wrap > button {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    padding: 5px 20px 5px 5px;
+    margin-top: 1px;
+    font-size: 82%;
+    color: #444;
+    outline: none;
+    white-space: nowrap;
+}
+.ms-options-wrap > button:after {
+    content: ' ';
+    height: 0;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    width: 0;
+    border: 6px solid rgba(0, 0, 0, 0);
+    border-top-color: #999;
+    margin-top: -3px;
+}
+.ms-options-wrap > .ms-options {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    margin-top: 1px;
+    margin-bottom: 20px;
+    background: white;
+    z-index: 2000;
+    border: 1px solid #aaa;
+}
+.ms-options-wrap > .ms-options > .ms-search input {
+    width: 100%;
+    padding: 4px 5px;
+    border: none;
+    border-bottom: 1px groove;
+    outline: none;
+}
+.ms-options-wrap > .ms-options .ms-selectall {
+    display: inline-block;
+    font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+    text-transform: lowercase;
+    text-decoration: none;
+}
+.ms-options-wrap > .ms-options .ms-selectall:hover {
+    text-decoration: underline;
+}
+.ms-options-wrap > .ms-options > .ms-selectall.global {
+    margin: 4px 5px;
+}
+.ms-options-wrap > .ms-options > ul,
+.ms-options-wrap > .ms-options > ul > li.optgroup ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.ms-options-wrap > .ms-options > ul > li.optgroup {
+    padding: 5px;
+}
+.ms-options-wrap > .ms-options > ul > li.optgroup + li.optgroup {
+    border-top: 1px solid #aaa;
+}
+.ms-options-wrap > .ms-options > ul > li.optgroup .label {
+    display: block;
+    padding: 5px 0 0 0;
+    font-weight: bold;
+}
+.ms-options-wrap > .ms-options > ul label {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 4px;
+    margin: 1px 0;
+    border: 1px dotted transparent;
+}
+.ms-options-wrap > .ms-options > ul label.focused,
+.ms-options-wrap > .ms-options > ul label:hover {
+    background-color: #efefef;
+    border-color: #999;
+}
+.ms-options-wrap > .ms-options > ul li.selected label {
+    background-color: #efefef;
+    border-color: transparent;
+}
+.ms-options-wrap > .ms-options > ul input[type="checkbox"] {
+    margin: 0 5px 0 0;
+    position: absolute;
+    left: 4px;
+    top: 7px;
+}
+.ms-options-wrap > .ms-options.hide-checkbox > ul input[type="checkbox"] {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+/* .ms это запчасти от мультиселекта -- закончились */
+
+ul.menuline li{ /* верхнее и нижнее меню в городах и областях */
+    font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 3px;
+    margin: 3px;
+    text-align: center; /* текст горизонтально по центру */
+    border-top: 1px solid #809080 ;
+    border-left: 1px solid #809080 ;
+    border-right: 2px solid #809080 ;
+    border-bottom: 2px solid #809080 ;
+    border-radius: 6px;
+    /*background: #99ff99;*/
+}
+.menuline a {
+    text-decoration: none; /* убрать нижнее подчёркивание у ссылок */
+}
+
+ .column { /* многоколонный див в городах и областях */
+  -webkit-columns: 220px 4;
+  -moz-columns: 220px 4;
+  columns: 220px 4;
+  -webkit-column-gap: 10px;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+  -webkit-column-rule: 1px solid #ccc;
+  -moz-column-rule: 1px solid #ccc;
+  column-rule: 1px solid #ccc;
+  padding: 10px;
+}
+
+#maincontainer {
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    padding: 0px;
+    margin: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: fixed;
+    z-index: 998;
+    height: 100%;
+}
+
+headerline {
+    float:left;
+    width: 100%;
+ 
+}
+
+.footerline {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.logo{
+    float: left;
+    width: 169px;
+ }
+
+.header-top {
+  float: left;
+  width: calc(100% - 169px);
+}
+
+.logo-right{
+    float: right;
+/*   width: 384px; */
+}
+
+.logo-left{
+    float: left;
+/*    width: 416px; */
+}
+
+img {
+    padding: 0;
+    display: inline-block;
+    margin: 0 auto;
+    /* max-height: 100%; */
+    max-width: 100%;
+}
+
+.logo-right img{
+    display: inline-block;
+    width: 100%;
+}
+
+.logo-left img{
+    display: inline-block;
+    width: 100%;
+}
+
+
+.header-bottom nav{
+    display: inline-block;
+}
+ 
+.left-menu ul{
+    list-style: none;
+    padding-left: 5%;
+    width: 95%;
+}
+
+.left-menu ul li {
+    border-bottom: 1px solid #AAA;
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+.left-column{
+    padding-left: 5%;
+    width: 100%;
+    border-top: solid 1px #ccc;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.left-menu ul li:last-child {
+   border-bottom: 0;
+}   
+
+.right-reklama {
+    text-align: center;
+}
+.right-reklama ul {
+    list-style: none;
+    padding-left: 5%;
+    width: 95%;
+}
+.right-reklama ul li {
+    padding-bottom: 5px;
+}
+
+a.event { //текст события черным
+    color:#000000; 
+}
+
+.reklamka {
+     width: 95%;
+     margin: auto;
+}
+
+.excitinglist h3 {
+     font-weight: 700;
+     text-align: left;
+}
+.raiting {
+     font-weight: 700;
+}
+
+.bodyline-main h2 {
+  color: #005D3B;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+/* плавающие блоки в пол-экрана шириной */
+.autocard {
+  width: 47%;
+  margin: 1%;
+  float: left;
+  border-top: solid #CCC;
+  /* border: solid 1px #DDD;
+  padding: 5px; */
+}
+
+.mt-2 {
+  margin-top: 0.5em;
+}
+/* классы для бутстрап элементов */
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #cc0000;
+}
+.navbar-collapse.collapse {
+  padding-top: 2px;
+}    
+
+.navbar-nav li a:hover {
+  border-color: #00552B99;
+}
+
+.navbar-nav li a {
+  border: solid 1px;
+  border-radius: 0.4vw;
+  border-color: transparent;
+  padding-top: 0.4vw;
+  padding-bottom: 0.4vw;
+  color: #00552B;
+  text-decoration: none;
+}
+
+.nav p {
+  margin-top: 0.5vw;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.navbar-nav li a img {
+  min-height: 24px;
+  max-height: 48px;
+  height: 1.5vw;
+  width: auto;
+}
+
+.navbar-toggle {
+  color: #00552B;
+}
+
+.travell01t li a img {
+  min-height: 24px;
+  max-height: 48px;
+  height: 1.5vw;
+  width: auto;
+}
+
+.travell01t li a:hover {
+  border-color: #00552B99;
+}
+
+.travell01t li a {
+  border: solid 1px;
+  border-color: transparent;
+  border-radius: 0.4vw;
+  margin-top: 2px;
+  margin-left: 2px;
+  margin-right: 2px;  
+  padding: 5px;
+}
+
+.travell01t li {
+  border-top: solid 1px;
+  border-color: #CCC;
+}
+
+.sidebar  {
+  min-width: 180px;
+  max-width: 300px;
+  width: 15vw;
+  min-height: 100vh;
+  border-right: solid 1px #CCC; 
+}
+
+.sidebar.active {
+  margin-left: -180px;
+}
+
+#sidebar-hidden {
+  visibility: hidden;
+  display: none;
+  position: absolute;
+  float: left;
+  margin-left: 7px;
+  padding: 3px;
+  margin-top: 13.5vw;
+  margin-bottom: 6px;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+}
+#sidebar-hidden:hover {
+  border: 1px solid #00552B99;
+}
+.topnav {
+  background-color: transparent;
+  color: #00552B;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.panel {
+  background: transparent;
+  border: solid 1px #CCC;
+}
+.breadcrumb {
+  border: solid 1px #CCC;
+  background-color: transparent;
+}
+.helpheader {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0.2em;
+  border-bottom: solid 1px #CCC;
+}
+/* закончились бутстрап */
+
+.bodyline-news, .double-div {
+  margin: auto; 
+  width: 95%;
+  padding-bottom: 10px;
+  float: left;
+ }
+ 
+.bodyline-news {
+  /* font: 14px Tahoma, Arial, Helvetica, sans-serif; */
+  line-height: 1.5;
+}
+ 
+.newobjects-otkliks, .newobjects-traces,  .newobjects-reports, .newobjects-objects, .newobjects-descriptions, .bodyline-marshruts { 
+  /* font: 12px Tahoma, Arial, Helvetica, sans-serif; */
+  line-height: 1.5;
+  float: left;
+  width: 50%;
+  min-width: 200px; /* дополнительно переопределено через @media*/
+  padding: 5px;
+  box-sizing: border-box;
+  display: table;
+}
+
+/* страница города */
+
+.towndescmapfoto { /*верхняя часть (описание, карта, фото)*/
+  padding: 1vw; 
+}
+
+.towndesc{ /*описание города*/
+  float: left;
+  max-width: 69%;
+}
+
+.townfotowide { /*фото города*/
+  float: left;
+  width:100%;
+}
+
+.townfoto { /*фото города*/
+  float: left;
+  max-width: 67%;
+}
+
+.townmap { /*карта города*/
+  float: right;
+  min-width: 30%;
+  text-align: right;
+}
+
+.townleft{ /*левый столбец города - достопримы */
+  float: left;
+  max-width: 69%;
+}
+
+.townright{ /*правый столбец города - сопутствующая инфа*/
+  float: right;
+}
+
+/* переопределения под разные media */ 
+@media screen and (max-width: 600px) {
+  .tcrumb { /* текст на кнопке */
+    font: 12px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+  }
+  .right-reklama {
+    position: relative;
+    min-height: 40px;
+  }
+}
+
+/* убираем колесо из заголовка и левый сайдбар на 992 пикселах */
+@media screen and (max-width: 992px) {
+    .tcrumb { /* текст на кнопке */
+      font: 12px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+    }
+    .autocard {
+      width: 97%;
+    }
+    .body {
+      width: 100%;
+    }
+    .header-top {
+      width: 100%;
+    }
+    .logo {
+      display: none;
+    }
+    .logo-left{
+      width: 50%;
+    }
+    .logo-right{
+      width: 50%;
+    }
+    .sidebar {
+      margin-left: -160px;
+    }
+    .sidebar.active {
+      margin-left: 0;
+    }
+    #sidebar-hidden {
+      visibility: visible;
+      display: flex;
+    }
+    .breadcrumb {
+      font-size: 12px;
+      font-weight: 400; 
+    }
+}
+
+/* плавающие блоки на главной странице выстраиваем в столбик на 1120 пикселах, уменьшаем шрифт новостей до ординарного */
+@media screen and (max-width: 1120px) {
+   .newobjects-otkliks, .newobjects-traces,  .newobjects-reports, .newobjects-objects, .newobjects-descriptions, .bodyline-marshruts  { 
+     width: 100%;
+   }     
+   .bodyline-news {
+     font: 12px Tahoma, Arial, Helvetica, sans-serif;
+     line-height: 1.8;
+   }
+}
+
+/* увеличение шрифта на экранах шире 1600 пикселов */
+@media screen and (min-width: 1600px) {
+   /* плавающие блоки в пол-экрана шириной */
+    .autocard {
+     width: 47%;
+    }
+    .t0 { /* обычный текст */
+      font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+    }
+    .tcrumb { /* текст на кнопке */
+      font: 14px/1.3 Tahoma, Arial, Helvetica, sans-serif;
+      font-weight: 600;
+    }
+    .bodyline-news {
+      font: 16px Tahoma, Arial, Helvetica, sans-serif;
+      line-height: 1.8;
+    }
+    .newobjects-otkliks, .newobjects-traces,  .newobjects-reports, .newobjects-objects, .newobjects-descriptions, .bodyline-marshruts  { 
+      font: 14px Tahoma, Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }     
+    .travell0 { 
+      font: 14px Tahoma, Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }     
+    .travell5m, .travell5q, .travell5n { 
+      font: 16px Tahoma, Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+      font-weight: bold;
+    }     
+    .travell5r { 
+      font: 14px Tahoma, Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+      font-weight: bold;
+    }     
+    .breadcrumb {
+      font-size: 16px;
+      font-weight: 600; 
+    }
+}    
+
+/* увеличение шрифта на экранах шире 1900 пикселов */
+@media screen and (min-width: 1900px) {
+  /* плавающие блоки в треть экрана шириной */
+  .autocard {
+    width: 31%;
+  }
+}
+/* END переопределения под разные media */  

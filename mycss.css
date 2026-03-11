@@ -1,0 +1,124 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02.04.2017, 16:50:44
+    Author     : klv
+*/
+
+body{
+    background-color: #EEE9D5;
+    font-family: Arial;
+    font-size: 14px;
+}
+h3{
+   text-align: center;
+   font-size: 120%;
+   font-weight: 700;
+   color: #005D3B; 
+}
+h4{
+   text-align: center;
+   font-size: 100%;
+   font-weight: 700;
+   color: #005D3B; 
+}
+a {
+  color: #005D3B; 
+  font-weight: 700;
+  text-decoration: none;
+}
+a:hover{
+    font-size: 120%
+}
+header {
+    background-color: gray;
+    width: 100%;
+}
+
+.header-top {
+  float: left;
+  width: calc(100% - 169px);
+}
+
+.logo::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.header-top::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+.logo{
+    float: left;
+    width: 169px;
+ }
+.logo-right{
+    float: right;
+    width: 384px;
+ }
+
+.logo-left{
+    float: left;
+    width: 416px;
+ }
+ ul.main-menu li {
+     display:inline-block;
+ }
+ .user-menu {
+     display:inline-block;
+     float: right;
+ }
+ .header-user-menu ul{
+     list-style: none;
+     vertical-align: text-top;
+ }
+ .header-bottom{
+     float: left;
+ }
+ .header-bottom nav{
+     display: inline-block;
+ }
+ 
+ .main-contain-left-column{
+     float: left;
+     clear: left;
+     width: 15%;
+ }
+ .left-menu ul{
+     list-style: none;
+     padding-left: 5px;
+     width: 75%;
+ }
+ .left-menu ul li {
+    border-bottom: 1px solid #005D3B;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.left-menu ul li:last-child {
+   border-bottom: 0;
+    
+}
+.main-contain-main{ 
+    float: left;
+    width: 60%;
+}
+ .main-contain-right-column{
+     float: right;
+     width: 15%;
+ }
+ .main-footer{
+     width: 100%;
+     clear: left;
+ }

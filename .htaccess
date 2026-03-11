@@ -1,0 +1,23 @@
+RewriteEngine On
+
+# --- Разрешаем /script.php/anything (PATH_INFO) ---
+AcceptPathInfo On
+
+# --- Каноникал: запрещаем хвосты у rd_report.php (/rd_report.php/...) ---
+RewriteRule ^rd_report\.php/.+$ /rd_report.php [R=301,L]
+
+# --- Каноникал: чистим накрученное /v_report.php/v_report.php/.../{id} и лишние сегменты ---
+RewriteRule ^v_report\.php/(?:v_report\.php/)+([0-9]+)/?$ /v_report.php/$1 [R=301,L]
+RewriteRule ^v_report\.php/([0-9]+)/.+$ /v_report.php/$1 [R=301,L]
+
+# --- ЧПУ для "Что привезти": /excite_bring_area/{id|slug}/ ---
+RewriteRule ^excite_bring_area/([^/]+)/?$ excite_bring_area.php/$1 [L,QSA]
+
+# --- Основное правило сайта: редирект неизвестных адресов на главную ---
+RewriteCond %{REQUEST_URI} !^/sitemap [NC]
+RewriteCond %{REQUEST_URI} !^/phalbum\.php [NC]
+RewriteCond %{REQUEST_URI} !^/excite_bring_area [NC]
+RewriteCond %{REQUEST_URI} !^/excite_area\.php [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . / [L,R=301]

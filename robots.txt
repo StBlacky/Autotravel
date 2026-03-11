@@ -1,0 +1,43 @@
+User-agent: *
+Disallow: /kml.php
+Disallow: /cgi-bin
+Disallow: /sitemgr.php
+Disallow: /archive.php
+Disallow: /test.php
+Disallow: /user.php
+Disallow: /rssf.php
+Disallow: /ourtrip.php
+Disallow: /wr_report.php
+Disallow: /ch_trip.php
+Disallow: /news.php
+Disallow: /exi.php
+Disallow: /partner.php
+Disallow: /basket_v.php
+Disallow: /otkliksmall.php
+Disallow: /otkliksml_bs.php
+Disallow: /exsml_bs.php
+Disallow: /fotosml_bs.php
+Disallow: /map.php
+Disallow: /faq.php
+
+# --- Фотоальбомы ---
+# закрываем лишние и техразделы
+Disallow: /phalbum/
+Disallow: /phalbum.php/admin/
+Disallow: /phalbum.php/author/
+Disallow: /phalbum.php/cat/
+Disallow: /phalbumx/
+Disallow: /phalbumx/area/
+
+# оставляем только полезные страницы
+Allow: /phalbum.php/town/
+Allow: /phalbum.php/ex/
+Allow: /phalbum.php/area/
+
+# --- Прочие фильтры ---
+Disallow: /*?*
+Allow: /cube.php?m=1
+Allow: /top100.php?z=1
+
+Host: autotravel.ru
+Sitemap: https://autotravel.ru/sitemap-index.xml

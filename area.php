@@ -303,79 +303,54 @@ if (!($_text_mode)) {
 }  
 
 echo "<div class=\"container-fluid\" style=\"width:100%;\">\n"; 
+$v_curr = '';
 
-$aname = "";
-// раздел для заграницы
-if ($a<0) {
-  $v_curr = "<div style=\"width:100%; overflow: hidden; margin: auto;\">";
-  $v_curr .= "<div style=\"float:left; width: 230px;\">"
-    . "<dl style=\"margin:10px;\">"
-    . "<dt class=\"t12 tb tdl\">Столица"
-    . "<dd class=\"tdl travell0\"><a class=\"travell5o\" href=\"/town.php/".$areax[2]."\">" . $areax[3]."</a></dl></div>\n";
-  
-  $c_curr = $areax[4];
-  if ($c_curr == 643) {
-    $v_curr .= "<div style=\"float:left; width: 230px;\">"
-      . "<dl style=\"margin:10px;\">"
-      . "<dt class=\"t12 tb tdl\">Валюта - российский рубль</dl>"
-      . "</div>\n";
-  }
-  else {
-    $a_curr = getcurrency($c_curr);
-    $valcur = "не установлен";
-    if ($a_curr[3] >0) {
-      $valcur =  $a_curr[3] . " руб за " . $a_curr[2] . " " . $a_curr[1];
+if ($a < 0) {
+    $items = [];
+
+    $capital_id   = (int)$areax[2];
+    $capital_name = htmlspecialchars((string)$areax[3], ENT_QUOTES, 'UTF-8');
+    if ($capital_id > 0 && $capital_name !== '') {
+        $items[] =
+            '<span class="area-meta-part">'
+          . '<span class="area-meta-label t12 tb">Столица:</span>'
+          . '<span class="area-meta-value travell0">'
+          . '<a class="travell5o" href="/town.php/' . $capital_id . '">' . $capital_name . '</a>'
+          . '</span></span>';
     }
-    $v_curr .= "<div style=\"float:left; width: 230px;\">"
-      . "<dl style=\"margin:10px;\">"
-      . "<dt class=\"t12 tb tdl\">Валюта<dd class=\"tdd travell0\">" .getcurrency($areax[4])[0] .  ""
-      . "<dt class=\"t12 tb tdl\">Текущий курс (ЦБ)<dd class=\"tdd travell0\">" . $valcur ."</dl>"
-      . "</div>\n";
-  }  
-  $v_curr .= "</div>\n" ;
-          
-          
-  $aname .= "<div class=\"row\">";
-  if ($dispgmap) {//пояснение к интерактивной карте
-    $aname .= "<div class=\"col-md-3 col-xs-12\">\n";  
-    $aname .= "<H1 itemprop=\"name\">$areaname</H1>\n";
-    $aname .= $v_curr;
-    $aname .= "</div>\n";
-    $aname .= "<div class=\"col-md-9 col-xs-12\">";
-  //  $aname .= show_panel("Интерактивная карта","h4",$mapiframe,1,"areamap");    
-    if ($kml) {
-     $aname .=  "<p class=travell0>";
-     $aname .=  "Скачать координаты достопримечательностей (POI) на навигатор в формате <a class=travell5m href='$kml" . ".wpt'>WPT</a>&nbsp;\n";
-     $aname .=  "<a class=travell5m href='$kml" . ".kml'>KML</a>&nbsp;\n";
-     $aname .=  "<a class=travell5m href='$kml" . ".gpx'>GPX</a>\n";
-     $aname .=  "</p>\n";
-    }// скачать точки
-    $aname .= "</div>\n";
-  }  
-  else {
-    $aname .= "<div class=\"col-md-4 col-xs-12\">\n";  
-    $aname .= "<H1 itemprop=\"name\">$areaname</H1>\n";
-    $aname .= "</div>\n";
-    $aname .= "<div class=\"col-md-8 col-xs-12\">";
-    $aname .= $v_curr;
-    $aname .= "</div>\n";
-    if ($kml) {
-     $aname .=  "<p class=travell0>";
-     $aname .=  "Посмотреть на карте <a class=travell5m target=_blank href=\"" . $kml . ".htm\">Google MAP</a><br>\n";
-     $aname .=  "<a class=travell5m href='$kml" . ".kml'>KML</a>&nbsp;\n";
-     $aname .=  "<a class=travell5m href='$kml" . ".gpx'>GPX</a>\n";
-     $aname .=  "</p>\n";
-    }// скачать точки
-  }
-  $aname .= "</div>\n" ;
-  // закончилась заграница
-  // закончилась область заголовка    
-  //  echo "Виза: Шенген  ";
-  //  echo "ПДД: есть  ";
-  //  echo "Платные дороги: есть</p>";
-}
-else {
-  $aname .= "<H1 itemprop=\"name\">$areaname</H1>";
+
+    $currency_id = (int)$areax[4];
+    if ($currency_id === 643) {
+        $items[] =
+            '<span class="area-meta-part">'
+          . '<span class="area-meta-label t12 tb">Валюта:</span>'
+          . '<span class="area-meta-value travell0">российский рубль</span>'
+          . '</span>';
+    } elseif ($currency_id > 0) {
+        $a_curr = getcurrency($currency_id);
+        $valcur = 'не установлен';
+        if (!empty($a_curr[3]) && $a_curr[3] > 0) {
+            $valcur = $a_curr[3] . ' руб за ' . $a_curr[2] . ' ' . $a_curr[1];
+        }
+        $items[] =
+            '<span class="area-meta-part">'
+          . '<span class="area-meta-label t12 tb">Валюта:</span>'
+          . '<span class="area-meta-value travell0">' . htmlspecialchars((string)$a_curr[0], ENT_QUOTES, 'UTF-8') . '</span>'
+          . '</span>';
+        $items[] =
+            '<span class="area-meta-part">'
+          . '<span class="area-meta-label t12 tb">Курс ЦБ:</span>'
+          . '<span class="area-meta-value travell0">' . htmlspecialchars($valcur, ENT_QUOTES, 'UTF-8') . '</span>'
+          . '</span>';
+    }
+
+    if ($items) {
+        $v_curr =
+            '<div class="note-block area-meta-line" style="margin-bottom:15px;">'
+          . '<div class="area-meta-row">'
+          . implode('', $items)
+          . '</div></div>';
+    }
 }
 
 $bring_exists = false;
@@ -409,7 +384,14 @@ if ($bring_exists) {
 
 
 echo breadcrumbs(['area' => $a]);
+
+if ($fotos) {
+  echo "<div class=\"row\"><!-- main -->\n<div class=\"col-md-9 col-xs-12\"><!-- left -->\n";
+}
+
 echo "<h1 class=\"area-title\">$areaname</h1>";
+
+
 // --- Локальное меню-якоря (Города / Карта / Достопримечательности / Фото) ---
 echo local_nav([
     'towns'  => !empty($tbltxt1),
@@ -419,14 +401,14 @@ echo local_nav([
     'bring'  => $bring_url
 ]);
 
-if ($fotos) {
-  echo "<div class=\"row\"><!-- main -->\n<div class=\"col-md-9 col-xs-12\"><!-- left -->\n"; 
+if (!$fotos) {
+  echo "<div class=\"row\"><!-- main -->\n<div class=\"col-md-12 col-xs-12\"><!-- left -->\n";
 }
-else {
-  echo "<div class=\"row\"><!-- main -->\n<div class=\"col-md-12 col-xs-12\"><!-- left -->\n"; 
-} 
 
 // область заголовка   
+if ($a < 0) {
+    echo $v_curr;   // столица и валюта — уже собраны выше
+}
  $areadesc=getareadesc($a);
 if ($areadesc) {
   echo "<div style =\"padding: 5px;\" itemprop=\"text\" class=\"travell0\" id=\"areadescr\">$areadesc</div>";    
@@ -533,7 +515,7 @@ echo show_panel("Топ мест $areaname_r", "h2", $panel_body, 1, "areaex");
 
 echo "\n</div><!-- /left -->\n"; //конец левой части средней области
 if ($fotos) {
-  echo "<div class=\"col-md-3 col-xs-12\"><!-- right -->\n";
+  echo "<div class=\"col-md-3 col-xs-12 area-photos-col\"><!-- right -->\n";
   echo "<h2 id=\"areafoto\" itemprop=\"description\">Фотографии $areaname_r</h2>\n";
 
   // лёгкий SEO-текст, без дублей

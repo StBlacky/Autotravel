@@ -8,7 +8,7 @@ if (!function_exists('area_hub_render')) {
 
   function area_hub_render(int $a): string {
 
-    if ($a <= 0) return "<!-- area_hub: invalid area id -->";
+    if ($a == 0) return "<!-- area_hub: invalid area id -->";
 
     if (!isset($GLOBALS['dbi']) || !($GLOBALS['dbi'] instanceof mysqli)) {
       return "<div class='alert alert-danger'>area_hub: нет соединения с БД (\$dbi)</div>";
@@ -93,7 +93,7 @@ if (!function_exists('area_hub_render')) {
 
     // --- первая карточка: все достопримечательности области ---
     $root_url  = "/excite_area.php/" . $area_slug;
-    $root_name = "Все достопримечательности " . $area_name_r;
+    $root_name = "Все интересное " . $area_name_r;
     $root_name_html = htmlspecialchars($root_name, ENT_QUOTES | ENT_HTML401, 'UTF-8');
 
     $out .= "<a href='{$root_url}' class='travell5n area-hub-card'>";

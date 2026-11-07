@@ -8,14 +8,13 @@
 
 <section id="faq-ourtrip" class="faq-ourtrip">
 
-  <button class="faq-header"
-          type="button"
-          onclick="(function(btn){var c=document.getElementById('faq-ourtrip-content');var open=c.style.display==='block';c.style.display=open?'none':'block';btn.querySelector('.faq-chevron').style.transform=open?'':'rotate(90deg)';})(this)">
+  <details class="faq-details">
+    <summary class="faq-header">
       <span class="faq-chevron">▶</span>
       <span>Частые вопросы о совместных поездках</span>
-  </button>
+    </summary>
 
-  <div class="faq-content" id="faq-ourtrip-content" style="display:none">
+  <div class="faq-content">
 
     <h3>Как присоединиться к совместной поездке</h3>
     <div class="note-block">
@@ -91,4 +90,5 @@
     </div>
 
   </div>
+  </details>
 </section>

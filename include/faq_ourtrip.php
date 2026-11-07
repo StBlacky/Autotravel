@@ -8,13 +8,14 @@
 
 <section id="faq-ourtrip" class="faq-ourtrip">
 
-  <div class="faq-header"
-       onclick="document.getElementById('faq-ourtrip').classList.toggle('faq-open')">
+  <button class="faq-header"
+          type="button"
+          onclick="document.getElementById('faq-ourtrip').classList.toggle('faq-open')">
       <span class="faq-chevron">▶</span>
       <span>Частые вопросы о совместных поездках</span>
-  </div>
+  </button>
 
-  <div class="faq-content">
+  <div class="faq-content" style="display:none">
 
     <h3>Как присоединиться к совместной поездке</h3>
     <div class="note-block">

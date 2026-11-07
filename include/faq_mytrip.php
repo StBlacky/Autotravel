@@ -1,12 +1,13 @@
 <section id="faq-basket" class="faq-ourtrip">
 
-  <div class="faq-header"
-       onclick="document.getElementById('faq-basket').classList.toggle('faq-open')">
+  <button class="faq-header"
+          type="button"
+          onclick="document.getElementById('faq-basket').classList.toggle('faq-open')">
       <span class="faq-chevron">▶</span>
       <span>Частые вопросы о корзине поездки</span>
-  </div>
+  </button>
 
-  <div class="faq-content">
+  <div class="faq-content" style="display:none">
 
     <h3>Зачем нужна корзина</h3>
     <div class="note-block">

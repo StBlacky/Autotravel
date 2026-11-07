@@ -2,12 +2,12 @@
 
   <button class="faq-header"
           type="button"
-          onclick="document.getElementById('faq-basket').classList.toggle('faq-open')">
+          onclick="(function(btn){var c=document.getElementById('faq-basket-content');var open=c.style.display==='block';c.style.display=open?'none':'block';btn.querySelector('.faq-chevron').style.transform=open?'':'rotate(90deg)';})(this)">
       <span class="faq-chevron">▶</span>
       <span>Частые вопросы о корзине поездки</span>
   </button>
 
-  <div class="faq-content" style="display:none">
+  <div class="faq-content" id="faq-basket-content" style="display:none">
 
     <h3>Зачем нужна корзина</h3>
     <div class="note-block">

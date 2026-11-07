@@ -10,12 +10,12 @@
 
   <button class="faq-header"
           type="button"
-          onclick="document.getElementById('faq-ourtrip').classList.toggle('faq-open')">
+          onclick="(function(btn){var c=document.getElementById('faq-ourtrip-content');var open=c.style.display==='block';c.style.display=open?'none':'block';btn.querySelector('.faq-chevron').style.transform=open?'':'rotate(90deg)';})(this)">
       <span class="faq-chevron">▶</span>
       <span>Частые вопросы о совместных поездках</span>
   </button>
 
-  <div class="faq-content" style="display:none">
+  <div class="faq-content" id="faq-ourtrip-content" style="display:none">
 
     <h3>Как присоединиться к совместной поездке</h3>
     <div class="note-block">

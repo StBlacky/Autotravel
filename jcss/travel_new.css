@@ -2011,6 +2011,11 @@ position: relative;
     display: block;
 }
 
+/* Внутри details: видимостью управляет браузер, CSS не мешает */
+.faq-details .faq-content {
+    display: block;
+}
+
 .faq-open .faq-chevron {
     transform: rotate(90deg);
 }

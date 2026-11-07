@@ -85,14 +85,14 @@ echo "<div id=\"maincontainer\"> "; // контейнер всего сайта
           <li><a class="neucha large" href="/excite_bring.php">Что привезти</a></li>
           <li><a class="neucha large" href="/trace.php">Трассы</a></li>
           <li><A class="neucha large"  href="/marshruty.php">Маршруты</a></li>
-          <?php if ($forum_user_basket_count > 0) { ?>
+          <?php if ($forum_user_basket > 0 && $forum_user_basket_name !== "") { ?>
 <li>
   <a class="neucha" id="basket"
      href="/basket_v.php/<?php echo (int)$forum_user_basket; ?>"
      rel="nofollow">
 
     <?php echo htmlspecialchars($forum_user_basket_name); ?>
-    (<?php echo $forum_user_basket_count; ?>)
+    <?php if ($forum_user_basket_count > 0) { echo "(" . $forum_user_basket_count . ")"; } ?>
 
   </a>
 </li>
@@ -154,14 +154,14 @@ echo "<div id=\"maincontainer\"> "; // контейнер всего сайта
           <li><a class="neucha large" href="/excite_bring.php">Что привезти</a></li>
           <li><a class="neucha large" href="/trace.php">Трассы</a></li>
           <li><A class="neucha large"  href="/marshruty.php">Маршруты</a></li>
-        <?php if ($forum_user_basket_count > 0) { ?>
+        <?php if ($forum_user_basket > 0 && $forum_user_basket_name !== "") { ?>
 <li>
   <a class="neucha" id="basket"
      href="/basket_v.php/<?php echo (int)$forum_user_basket; ?>"
      rel="nofollow">
 
     <?php echo htmlspecialchars($forum_user_basket_name); ?>
-    (<?php echo $forum_user_basket_count; ?>)
+    <?php if ($forum_user_basket_count > 0) { echo "(" . $forum_user_basket_count . ")"; } ?>
 
   </a>
 </li>

@@ -1959,6 +1959,17 @@ position: relative;
     margin-top: 25px;
 }
 
+/* details/summary — сброс браузерного треугольника */
+.faq-details {
+    list-style: none;
+}
+.faq-details > summary {
+    list-style: none;
+}
+.faq-details > summary::-webkit-details-marker {
+    display: none;
+}
+
 /* Заголовок FAQ */
 .faq-header {
     font-family: var(--brand-font);
@@ -1970,6 +1981,17 @@ position: relative;
     gap: 6px;
     margin-bottom: 8px;
     user-select: none;
+    /* сброс стилей summary/button */
+    background: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    -webkit-appearance: none;
+}
+/* стрелка при открытом details */
+.faq-details[open] .faq-chevron {
+    transform: rotate(90deg);
 }
 
 /* Иконка стрелки */
@@ -1986,6 +2008,11 @@ position: relative;
 }
 
 .faq-open .faq-content {
+    display: block;
+}
+
+/* Внутри details: видимостью управляет браузер, CSS не мешает */
+.faq-details .faq-content {
     display: block;
 }
 

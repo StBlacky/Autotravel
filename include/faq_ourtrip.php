@@ -8,11 +8,11 @@
 
 <section id="faq-ourtrip" class="faq-ourtrip">
 
-  <div class="faq-header"
-       onclick="document.getElementById('faq-ourtrip').classList.toggle('faq-open')">
+  <details class="faq-details">
+    <summary class="faq-header">
       <span class="faq-chevron">▶</span>
       <span>Частые вопросы о совместных поездках</span>
-  </div>
+    </summary>
 
   <div class="faq-content">
 
@@ -90,4 +90,5 @@
     </div>
 
   </div>
+  </details>
 </section>

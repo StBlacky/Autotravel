@@ -1,10 +1,10 @@
 <section id="faq-basket" class="faq-ourtrip">
 
-  <div class="faq-header"
-       onclick="document.getElementById('faq-basket').classList.toggle('faq-open')">
+  <details class="faq-details">
+    <summary class="faq-header">
       <span class="faq-chevron">▶</span>
       <span>Частые вопросы о корзине поездки</span>
-  </div>
+    </summary>
 
   <div class="faq-content">
 
@@ -88,4 +88,5 @@
     </div>
 
   </div>
+  </details>
 </section>
